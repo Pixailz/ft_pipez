@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 15:16:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 18:41:31 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/23 20:28:40 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/23 20:43:41 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-size_t	ft_strlen(char *s)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*t;
+	unsigned char	*tdst;
+	unsigned char	*tsrc;
 
-	if (!s)
-		return (0);
-	t = s;
-	while (*t)
-		t++;
-	return (t - s);
+	if (!dest && !src)
+		return (dest);
+	tsrc = (unsigned char *)src;
+	tdst = (unsigned char *)dest;
+	while (n--)
+		*tdst++ = *tsrc++;
+	return (dest);
 }

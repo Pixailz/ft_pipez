@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 15:16:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 18:41:31 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/23 20:46:45 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/23 20:46:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-size_t	ft_strlen(char *s)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*t;
+	unsigned char	*tmp;
 
-	if (!s)
-		return (0);
-	t = s;
-	while (*t)
-		t++;
-	return (t - s);
+	tmp = (unsigned char *)s;
+	while (n--)
+		*tmp++ = (unsigned char)c;
+	return (s);
 }

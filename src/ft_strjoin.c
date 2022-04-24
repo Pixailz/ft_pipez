@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 15:16:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 18:41:31 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/23 20:01:18 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/23 20:03:15 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-size_t	ft_strlen(char *s)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*t;
 
-	if (!s)
-		return (0);
-	t = s;
-	while (*t)
-		t++;
-	return (t - s);
+	t = s1;
+	while (*s1)
+		*t++ = *s1++;
+	while (*s2)
+		*t++ = *s2++;
+	return (t);
 }

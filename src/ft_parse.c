@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 15:16:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 18:41:31 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/16 16:14:04 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/16 17:10:31 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(char *s)
+int	ft_parse(va_list args, const char *format)
 {
-	char	*t;
+	int	size;
 
-	if (!s)
-		return (0);
-	t = s;
-	while (*t)
-		t++;
-	return (t - s);
+	size = 0;
+	while (*format)
+	{
+		if (*format == '%' && ft_checkparams(*(format + 1)))
+			size += ft_sel_params(args, *(format++ + 1));
+		else
+			size += ft_putchar(*format);
+		format++;
+	}
+	return (size);
 }

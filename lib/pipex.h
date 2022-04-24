@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 03:51:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 03:56:29 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/04/23 20:35:06 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 // CONFIG
 
 // LIBRARY
+# include "ft_printf.h"
+# include "get_next_line.h"
+# include "utils.h"
 
-// PROTOTYPES
+// MAIN
+char	*read_file(char *filename);
 
 #endif

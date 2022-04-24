@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_checkparams.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 15:16:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 18:41:31 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/16 16:20:06 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/23 18:15:55 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(char *s)
+int	ft_checkparams(char c)
 {
 	char	*t;
 
-	if (!s)
-		return (0);
-	t = s;
+	t = PARAMS_LIST;
 	while (*t)
-		t++;
-	return (t - s);
+		if (c == *t++)
+			return (1);
+	return (0);
 }

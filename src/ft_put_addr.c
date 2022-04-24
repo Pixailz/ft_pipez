@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_put_addr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 15:16:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 18:41:31 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/16 16:56:22 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/23 18:15:52 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(char *s)
+int	ft_put_addr(va_list args)
 {
-	char	*t;
+	unsigned long long	addr;
 
-	if (!s)
-		return (0);
-	t = s;
-	while (*t)
-		t++;
-	return (t - s);
+	addr = va_arg(args, unsigned long long);
+	if (!addr)
+		return (ft_putstr("(nil)"));
+	return (ft_putstr("0x") + ft_puthex(addr, 'x'));
 }

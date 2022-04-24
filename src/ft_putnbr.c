@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 15:16:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 18:41:31 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/16 16:04:44 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/23 18:24:29 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(char *s)
+int	ft_putnbr(int n)
 {
-	char	*t;
+	int	l;
 
-	if (!s)
+	l = 0;
+	if (n > 2147483647)
 		return (0);
-	t = s;
-	while (*t)
-		t++;
-	return (t - s);
+	if (n == -2147483648)
+		return (ft_putstr("-2147483648"));
+	if (n < 0)
+	{
+		l += ft_putchar('-');
+		n = ~(n - 1);
+	}
+	if (n >= 10)
+		l += ft_putnbr(n / 10);
+	l += ft_putchar((n % 10) + '0');
+	return (l);
 }

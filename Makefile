@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/04/23 03:53:38 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/04/23 20:03:35 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ blinking		:= \033[5m
 reset			:= \033[0m
 
 font_color		:= $(blue)
-bold			:= $(red)
-ascii_color			:= $(yellow)
+bold			:= $(green)
+ascii_color		:= $(bold)
 
 # **************************************************************************** #
 
@@ -51,18 +51,16 @@ CFLAGS			:= -Wall -Wextra -Werror -O3
 NAME			:= pipex
 RM				:= rm -rf
 CC				:= gcc
-PADDING			:= 100
+PADDING			:= 25
 # SRC
 SRC_DIR			:= src
-SRC		:= ft_strlen.c  \
-		   ft_strleeeeen.c  \
-		   ft_strleeeen.c  \
+SRC				:= $(wildcard $(SRC_DIR)/*.c)
 
-SRC		:= $(patsubst %,$(SRC_DIR)/%,$(SRC))
+SRC				:= $(sort $(SRC))
 
 # OBJ
 OBJ_DIR			:= obj
-OBJ		:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC:%.c=%.o))
+OBJ				:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC:%.c=%.o))
 
 # LIB DIR
 LIB_DIR			:= lib
@@ -83,8 +81,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME):		$(OBJ)
-	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)libft.a$(reset)\n"
-	@ar rcs $(NAME) $(OBJ)
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(NAME)$(reset)\n"
+	@$(CC) -o $(NAME) $(OBJ)
 
 
 so: 			$(OBJ_ASM)
@@ -100,7 +98,7 @@ fclean:			clean
 	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(NAME)$(reset)\n"
 	@$(RM) $(NAME) $(LIBSHARE)
 
-re:				fclean create_dir $(NAME)
+re:				call_logo fclean create_dir $(NAME)
 
 call_logo:
 	$(call print_ascii)

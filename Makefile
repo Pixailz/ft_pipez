@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
+#    By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/04/23 20:03:35 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/04/28 10:49:09 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,11 +47,12 @@ endef
 
 # **************************************************************************** #
 # config
-CFLAGS			:= -Wall -Wextra -Werror -O3
+CFLAGS			:= -Wall -Wextra -Werror
 NAME			:= pipex
 RM				:= rm -rf
 CC				:= gcc
-PADDING			:= 25
+PADDING			:= 10
+
 # SRC
 SRC_DIR			:= src
 SRC				:= $(wildcard $(SRC_DIR)/*.c)
@@ -71,45 +72,46 @@ CFLAGS			+= -I$(LIB_DIR)
 # **************************************************************************** #
 # Building rules
 
-all:			call_logo create_dir $(NAME)
+all:			setup $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-
-	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$<"
-	@printf "%0.s " $(shell seq 1 $(shell dc -e "$(PADDING) $(shell printf "$<" | wc -c) - p"))
-	@printf "$(blinking)$(font_color)-> $(reset)$(bold)$@ $(reset)\n"
+	@printf "  $(font_color)[$(green)+$(font_color)] Creation of $(bold)$<"
+	$(eval OBJ_LEN := $(shell printf $^ | wc -c))
+	$(eval PAD_LEN := $(shell expr $(PADDING) - $(OBJ_LEN)))
+	@printf "%-$(PAD_LEN)s" " "
+	@printf "$(blinking)$(font_color)-> $(reset)$(bold)$@ $(reset)"
+	@printf "%-30s" " "
+	@printf "\r"
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME):		$(OBJ)
 	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(NAME)$(reset)\n"
 	@$(CC) -o $(NAME) $(OBJ)
 
+setup:				call_logo $(OBJ_DIR)
 
-so: 			$(OBJ_ASM)
-	$(CC) -c -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o $(LIBSHARE) $(OBJ) $(OBJ_ASM)
+$(OBJ_DIR):
+	@printf "$(font_callcolor)[$(green)+$(font_color)] Creation of $(bold)obj dir$(reset)\n"
+	@mkdir -p $(OBJ_DIR)
+
+lib:			setup $(OBJ)
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)pipex.a$(reset)\n"
+	ar rcs pipex.a $(OBJ)
 
 clean:
 	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)object folder$(reset)\n"
 	@$(RM) $(OBJ_DIR)
 	@$(RM) $(LIBSHARE)
 
-fclean:			clean
+fclean:				clean
 	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(NAME)$(reset)\n"
 	@$(RM) $(NAME) $(LIBSHARE)
 
-re:				call_logo fclean create_dir $(NAME)
+re:					call_logo fclean $(OBJ_DIR) $(NAME)
 
 call_logo:
 	$(call print_ascii)
 
-create_dir:
-	@if [ ! -d ./obj ];\
-	then printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)obj dir$(reset)\n";\
-	mkdir -p $(OBJ_DIR);\
-	printf "$(reset)";\
-	fi
-
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re setup lib
 
 # **************************************************************************** #

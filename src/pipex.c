@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/28 20:46:00 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/04/28 21:27:38 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,13 @@ int	ft_perror(char *msg)
 char	**get_path(char **env)
 {
 	char	*tmp;
-	char	*tmp2;
 
 	while (ft_strncmp("PATH", *env, 4))
 		env++;
 	if (!*env)
 		return (NULL);
 	tmp = *env + 5;
-	tmp2 = ft_split(tmp, ':');
-	return (tmp2);
+	return (ft_split(tmp, ':'));
 }
 
 char	*check_path(t_pipex *pipex, char *cmd_str)
@@ -59,7 +57,7 @@ t_cmd	*get_command(t_pipex *pipex, char *cmd_str)
 	t_cmd	*cmd;
 	char	*token;
 	char	*tmp;
-	int		i;
+	size_t	i;
 
 	cmd = malloc(sizeof(t_cmd));
 	tmp = ft_strdup(cmd_str);
@@ -73,19 +71,26 @@ t_cmd	*get_command(t_pipex *pipex, char *cmd_str)
 		cmd->cmd_arg = (char **)0;
 		return (cmd);
 	}
-	splitted = (char **)malloc(sizeof(char *) * ft_get_words(tmp, ' ') - 1);
+	cmd->size = ft_get_words(tmp, ' ') - 1;
+	splitted = (char **)malloc(sizeof(char *) * cmd->size);
 	free(tmp);
 	i = 0;
 	while (token)
 	{
-		splitted[i] = (char *)malloc(sizeof(char) * ft_strlen(token));
-		splitted[i++] = token;
+		splitted[i] = (char *)malloc(sizeof(char) * ft_strlen(token) + 1);
+		ft_strcpy(splitted[i], token);
 		token = ft_strtok(NULL, " ");
+		i++;
 	}
 	cmd->cmd_arg = splitted;
 	i = 0;
-	if (splitted)
-		free(splitted);
+	while (i < cmd->size)
+	{
+		free(splitted[i]);
+		splitted[i] = NULL;
+		i++;
+	}
+	free(splitted);
 	return (cmd);
 }
 

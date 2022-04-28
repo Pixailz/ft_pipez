@@ -1,1 +1,583 @@
-1
+-r--r--r--  1 root root 0 Apr 26 17:15 icmp
+-r--r--r--  1 root root 0 Apr 26 17:15 icmp6
+-r--r--r--  1 root root 0 Apr 26 17:15 if_inet6
+-r--r--r--  1 root root 0 Apr 26 17:15 igmp
+-r--r--r--  1 root root 0 Apr 26 17:15 igmp6
+-r--r--r--  1 root root 0 Apr 26 17:15 ip6_flowlabel
+-r--r--r--  1 root root 0 Apr 26 17:15 ip6_mr_cache
+-r--r--r--  1 root root 0 Apr 26 17:15 ip6_mr_vif
+-r--r--r--  1 root root 0 Apr 26 17:15 ip_mr_cache
+-r--r--r--  1 root root 0 Apr 26 17:15 ip_mr_vif
+-r--r-----  1 root root 0 Apr 26 17:15 ip_tables_matches
+-r--r-----  1 root root 0 Apr 26 17:15 ip_tables_names
+-r--r-----  1 root root 0 Apr 26 17:15 ip_tables_targets
+-r--r--r--  1 root root 0 Apr 26 17:15 ipv6_route
+-r--r--r--  1 root root 0 Apr 26 17:15 l2cap
+-r--r--r--  1 root root 0 Apr 26 17:15 mcfilter
+-r--r--r--  1 root root 0 Apr 26 17:15 mcfilter6
+dr-xr-xr-x  3 root root 0 Apr 26 17:15 netfilter
+-r--r--r--  1 root root 0 Apr 26 17:15 netlink
+-r--r--r--  1 root root 0 Apr 26 17:15 netstat
+dr-xr-xr-x  4 root root 0 Apr 26 17:15 nfsfs
+-r--r--r--  1 root root 0 Apr 26 17:15 packet
+-r--r--r--  1 root root 0 Apr 26 17:15 protocols
+-r--r--r--  1 root root 0 Apr 26 17:15 psched
+-r--r--r--  1 root root 0 Apr 26 17:15 ptype
+-r--r--r--  1 root root 0 Apr 26 17:15 raw
+-r--r--r--  1 root root 0 Apr 26 17:15 raw6
+-r--r--r--  1 root root 0 Apr 26 17:15 rfcomm
+-r--r--r--  1 root root 0 Apr 26 17:15 route
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 rpc
+-r--r--r--  1 root root 0 Apr 26 17:15 rt6_stats
+-r--r--r--  1 root root 0 Apr 26 17:15 rt_acct
+-r--r--r--  1 root root 0 Apr 26 17:15 rt_cache
+-r--r--r--  1 root root 0 Apr 26 17:15 sco
+-r--r--r--  1 root root 0 Apr 26 17:15 snmp
+-r--r--r--  1 root root 0 Apr 26 17:15 snmp6
+-r--r--r--  1 root root 0 Apr 26 17:15 sockstat
+-r--r--r--  1 root root 0 Apr 26 17:15 sockstat6
+-r--r--r--  1 root root 0 Apr 26 17:15 softnet_stat
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 stat
+-r--r--r--  1 root root 0 Apr 26 17:15 tcp
+-r--r--r--  1 root root 0 Apr 26 17:15 tcp6
+-r--r--r--  1 root root 0 Apr 26 17:15 udp
+-r--r--r--  1 root root 0 Apr 26 17:15 udp6
+-r--r--r--  1 root root 0 Apr 26 17:15 udplite
+-r--r--r--  1 root root 0 Apr 26 17:15 udplite6
+-r--r--r--  1 root root 0 Apr 26 17:15 unix
+-r--r--r--  1 root root 0 Apr 26 17:15 wireless
+-r--r--r--  1 root root 0 Apr 26 17:15 xfrm_stat
+
+/home/deepthought/proc/104/task/104/net/dev_snmp6:
+total 0
+dr-xr-xr-x  7 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 61 root root 0 Apr 26 17:15 ..
+-r--r--r--  1 root root 0 Apr 26 17:15 eno2
+-r--r--r--  1 root root 0 Apr 26 17:15 lo
+-r--r--r--  1 root root 0 Apr 26 17:15 wlo1
+
+/home/deepthought/proc/104/task/104/net/netfilter:
+total 0
+dr-xr-xr-x  3 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 61 root root 0 Apr 26 17:15 ..
+-r--r--r--  1 root root 0 Apr 26 17:15 nf_log
+
+/home/deepthought/proc/104/task/104/net/nfsfs:
+total 0
+dr-xr-xr-x  4 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 61 root root 0 Apr 26 17:15 ..
+-r--r--r--  1 root root 0 Apr 26 17:15 servers
+-r--r--r--  1 root root 0 Apr 26 17:15 volumes
+
+/home/deepthought/proc/104/task/104/net/rpc:
+total 0
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 61 root root 0 Apr 26 17:15 ..
+dr-xr-xr-x  4 root root 0 Apr 26 17:15 auth.rpcsec.context
+dr-xr-xr-x  4 root root 0 Apr 26 17:15 auth.rpcsec.init
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 auth.unix.gid
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 auth.unix.ip
+-r--r--r--  1 root root 0 Apr 26 17:15 nfs
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 nfs4.idtoname
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 nfs4.nametoid
+-r--r--r--  1 root root 0 Apr 26 17:15 nfsd
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 nfsd.export
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 nfsd.fh
+-rw-------  1 root root 0 Apr 26 17:15 use-gss-proxy
+
+/home/deepthought/proc/104/task/104/net/rpc/auth.rpcsec.context:
+total 0
+dr-xr-xr-x  4 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/104/task/104/net/rpc/auth.rpcsec.init:
+total 0
+dr-xr-xr-x  4 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/104/task/104/net/rpc/auth.unix.gid:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/104/task/104/net/rpc/auth.unix.ip:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/104/task/104/net/rpc/nfs4.idtoname:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/104/task/104/net/rpc/nfs4.nametoid:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/104/task/104/net/rpc/nfsd.export:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/104/task/104/net/rpc/nfsd.fh:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/104/task/104/net/stat:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 61 root root 0 Apr 26 17:15 ..
+-r--r--r--  1 root root 0 Apr 26 17:15 arp_cache
+-r--r--r--  1 root root 0 Apr 26 17:15 ndisc_cache
+-r--r--r--  1 root root 0 Apr 26 17:15 rt_cache
+ls: cannot open directory '/home/deepthought/proc/104/task/104/ns': Permission denied
+
+/home/deepthought/proc/1040:
+ls: cannot read symbolic link '/home/deepthought/proc/1040/cwd': Permission denied
+ls: cannot read symbolic link '/home/deepthought/proc/1040/root': Permission denied
+ls: cannot read symbolic link '/home/deepthought/proc/1040/exe': Permission denied
+total 0
+dr-xr-xr-x   9 systemd-timesync systemd-timesync 0 Apr 18 16:51 .
+dr-xr-xr-x 537 root             root             0 Apr 18 16:49 ..
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 arch_status
+dr-xr-xr-x   2 systemd-timesync systemd-timesync 0 Apr 18 16:51 attr
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 autogroup
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 auxv
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 cgroup
+--w-------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 clear_refs
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 cmdline
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 comm
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 coredump_filter
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 cpuset
+lrwxrwxrwx   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 cwd
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 environ
+lrwxrwxrwx   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 exe
+dr-x------   2 systemd-timesync systemd-timesync 0 Apr 18 16:51 fd
+dr-x------   2 systemd-timesync systemd-timesync 0 Apr 18 16:51 fdinfo
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 gid_map
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 io
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 limits
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 loginuid
+dr-x------   2 systemd-timesync systemd-timesync 0 Apr 26 17:15 map_files
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 maps
+-rw-------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 mem
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 mountinfo
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 mounts
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 mountstats
+dr-xr-xr-x  61 systemd-timesync systemd-timesync 0 Apr 26 17:15 net
+dr-x--x--x   2 systemd-timesync systemd-timesync 0 Apr 18 16:51 ns
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 numa_maps
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 oom_adj
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 oom_score
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 oom_score_adj
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 pagemap
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 patch_state
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 personality
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 projid_map
+lrwxrwxrwx   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 root
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 sched
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 schedstat
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 sessionid
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 setgroups
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 smaps
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 smaps_rollup
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 stack
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 stat
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 25 16:42 statm
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 18 16:51 status
+-r--------   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 syscall
+dr-xr-xr-x   4 systemd-timesync systemd-timesync 0 Apr 25 16:42 task
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 timers
+-rw-rw-rw-   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 timerslack_ns
+-rw-r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 uid_map
+-r--r--r--   1 systemd-timesync systemd-timesync 0 Apr 26 17:15 wchan
+
+/home/deepthought/proc/1040/attr:
+total 0
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 18 16:51 .
+dr-xr-xr-x 9 systemd-timesync systemd-timesync 0 Apr 18 16:51 ..
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 apparmor
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 18 16:51 current
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 display
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 exec
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 fscreate
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 keycreate
+-r--r--r-- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 prev
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 smack
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 sockcreate
+
+/home/deepthought/proc/1040/attr/apparmor:
+total 0
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 .
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 18 16:51 ..
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 current
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 exec
+-r--r--r-- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 prev
+
+/home/deepthought/proc/1040/attr/smack:
+total 0
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 .
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 18 16:51 ..
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 current
+ls: cannot open directory '/home/deepthought/proc/1040/fd': Permission denied
+ls: cannot open directory '/home/deepthought/proc/1040/fdinfo': Permission denied
+ls: cannot open directory '/home/deepthought/proc/1040/map_files': Permission denied
+
+/home/deepthought/proc/1040/net:
+total 0
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 .
+dr-xr-xr-x  9 systemd-timesync systemd-timesync 0 Apr 18 16:51 ..
+-r--r--r--  1 root             root             0 Apr 26 17:15 anycast6
+-r--r--r--  1 root             root             0 Apr 26 17:15 arp
+-r--r--r--  1 root             root             0 Apr 26 17:15 bnep
+-r--r--r--  1 root             root             0 Apr 26 17:15 connector
+-r--r--r--  1 root             root             0 Apr 26 17:15 dev
+-r--r--r--  1 root             root             0 Apr 26 17:15 dev_mcast
+dr-xr-xr-x  7 root             root             0 Apr 26 17:15 dev_snmp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 fib_trie
+-r--r--r--  1 root             root             0 Apr 26 17:15 fib_triestat
+-r--r--r--  1 root             root             0 Apr 26 17:15 hci
+-r--r--r--  1 root             root             0 Apr 26 17:15 icmp
+-r--r--r--  1 root             root             0 Apr 26 17:15 icmp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 if_inet6
+-r--r--r--  1 root             root             0 Apr 26 17:15 igmp
+-r--r--r--  1 root             root             0 Apr 26 17:15 igmp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip6_flowlabel
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip6_mr_cache
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip6_mr_vif
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip_mr_cache
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip_mr_vif
+-r--r-----  1 root             root             0 Apr 26 17:15 ip_tables_matches
+-r--r-----  1 root             root             0 Apr 26 17:15 ip_tables_names
+-r--r-----  1 root             root             0 Apr 26 17:15 ip_tables_targets
+-r--r--r--  1 root             root             0 Apr 26 17:15 ipv6_route
+-r--r--r--  1 root             root             0 Apr 26 17:15 l2cap
+-r--r--r--  1 root             root             0 Apr 26 17:15 mcfilter
+-r--r--r--  1 root             root             0 Apr 26 17:15 mcfilter6
+dr-xr-xr-x  3 root             root             0 Apr 26 17:15 netfilter
+-r--r--r--  1 root             root             0 Apr 26 17:15 netlink
+-r--r--r--  1 root             root             0 Apr 26 17:15 netstat
+dr-xr-xr-x  4 root             root             0 Apr 26 17:15 nfsfs
+-r--r--r--  1 root             root             0 Apr 26 17:15 packet
+-r--r--r--  1 root             root             0 Apr 26 17:15 protocols
+-r--r--r--  1 root             root             0 Apr 26 17:15 psched
+-r--r--r--  1 root             root             0 Apr 26 17:15 ptype
+-r--r--r--  1 root             root             0 Apr 26 17:15 raw
+-r--r--r--  1 root             root             0 Apr 26 17:15 raw6
+-r--r--r--  1 root             root             0 Apr 26 17:15 rfcomm
+-r--r--r--  1 root             root             0 Apr 26 17:15 route
+dr-xr-xr-x 13 root             root             0 Apr 26 17:15 rpc
+-r--r--r--  1 root             root             0 Apr 26 17:15 rt6_stats
+-r--r--r--  1 root             root             0 Apr 26 17:15 rt_acct
+-r--r--r--  1 root             root             0 Apr 26 17:15 rt_cache
+-r--r--r--  1 root             root             0 Apr 26 17:15 sco
+-r--r--r--  1 root             root             0 Apr 26 17:15 snmp
+-r--r--r--  1 root             root             0 Apr 26 17:15 snmp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 sockstat
+-r--r--r--  1 root             root             0 Apr 26 17:15 sockstat6
+-r--r--r--  1 root             root             0 Apr 26 17:15 softnet_stat
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 stat
+-r--r--r--  1 root             root             0 Apr 26 17:15 tcp
+-r--r--r--  1 root             root             0 Apr 26 17:15 tcp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 udp
+-r--r--r--  1 root             root             0 Apr 26 17:15 udp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 udplite
+-r--r--r--  1 root             root             0 Apr 26 17:15 udplite6
+-r--r--r--  1 root             root             0 Apr 26 17:15 unix
+-r--r--r--  1 root             root             0 Apr 26 17:15 wireless
+-r--r--r--  1 root             root             0 Apr 26 17:15 xfrm_stat
+
+/home/deepthought/proc/1040/net/dev_snmp6:
+total 0
+dr-xr-xr-x  7 root             root             0 Apr 26 17:15 .
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 ..
+-r--r--r--  1 root             root             0 Apr 26 17:15 eno2
+-r--r--r--  1 root             root             0 Apr 26 17:15 lo
+-r--r--r--  1 root             root             0 Apr 26 17:15 wlo1
+
+/home/deepthought/proc/1040/net/netfilter:
+total 0
+dr-xr-xr-x  3 root             root             0 Apr 26 17:15 .
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 ..
+-r--r--r--  1 root             root             0 Apr 26 17:15 nf_log
+
+/home/deepthought/proc/1040/net/nfsfs:
+total 0
+dr-xr-xr-x  4 root             root             0 Apr 26 17:15 .
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 ..
+-r--r--r--  1 root             root             0 Apr 26 17:15 servers
+-r--r--r--  1 root             root             0 Apr 26 17:15 volumes
+
+/home/deepthought/proc/1040/net/rpc:
+total 0
+dr-xr-xr-x 13 root             root             0 Apr 26 17:15 .
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 ..
+dr-xr-xr-x  4 root             root             0 Apr 26 17:15 auth.rpcsec.context
+dr-xr-xr-x  4 root             root             0 Apr 26 17:15 auth.rpcsec.init
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 auth.unix.gid
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 auth.unix.ip
+-r--r--r--  1 root             root             0 Apr 26 17:15 nfs
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 nfs4.idtoname
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 nfs4.nametoid
+-r--r--r--  1 root             root             0 Apr 26 17:15 nfsd
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 nfsd.export
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 nfsd.fh
+-rw-------  1 root             root             0 Apr 26 17:15 use-gss-proxy
+
+/home/deepthought/proc/1040/net/rpc/auth.rpcsec.context:
+total 0
+dr-xr-xr-x  4 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/1040/net/rpc/auth.rpcsec.init:
+total 0
+dr-xr-xr-x  4 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/1040/net/rpc/auth.unix.gid:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/1040/net/rpc/auth.unix.ip:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/1040/net/rpc/nfs4.idtoname:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/1040/net/rpc/nfs4.nametoid:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/1040/net/rpc/nfsd.export:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/1040/net/rpc/nfsd.fh:
+total 0
+dr-xr-xr-x  5 root root 0 Apr 26 17:15 .
+dr-xr-xr-x 13 root root 0 Apr 26 17:15 ..
+-rw-------  1 root root 0 Apr 26 17:15 channel
+-r--------  1 root root 0 Apr 26 17:15 content
+-rw-------  1 root root 0 Apr 26 17:15 flush
+
+/home/deepthought/proc/1040/net/stat:
+total 0
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 .
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 ..
+-r--r--r--  1 root             root             0 Apr 26 17:15 arp_cache
+-r--r--r--  1 root             root             0 Apr 26 17:15 ndisc_cache
+-r--r--r--  1 root             root             0 Apr 26 17:15 rt_cache
+ls: cannot open directory '/home/deepthought/proc/1040/ns': Permission denied
+
+/home/deepthought/proc/1040/task:
+total 0
+dr-xr-xr-x 4 systemd-timesync systemd-timesync 0 Apr 25 16:42 .
+dr-xr-xr-x 9 systemd-timesync systemd-timesync 0 Apr 18 16:51 ..
+dr-xr-xr-x 7 systemd-timesync systemd-timesync 0 Apr 25 16:42 1040
+dr-xr-xr-x 7 systemd-timesync systemd-timesync 0 Apr 25 16:42 1042
+
+/home/deepthought/proc/1040/task/1040:
+ls: cannot read symbolic link '/home/deepthought/proc/1040/task/1040/cwd': Permission denied
+ls: cannot read symbolic link '/home/deepthought/proc/1040/task/1040/root': Permission denied
+ls: cannot read symbolic link '/home/deepthought/proc/1040/task/1040/exe': Permission denied
+total 0
+dr-xr-xr-x  7 systemd-timesync systemd-timesync 0 Apr 25 16:42 .
+dr-xr-xr-x  4 systemd-timesync systemd-timesync 0 Apr 25 16:42 ..
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 arch_status
+dr-xr-xr-x  2 systemd-timesync systemd-timesync 0 Apr 26 17:15 attr
+-r--------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 auxv
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 cgroup
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 children
+--w-------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 clear_refs
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 cmdline
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 comm
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 cpuset
+lrwxrwxrwx  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 cwd
+-r--------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 environ
+lrwxrwxrwx  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 exe
+dr-x------  2 systemd-timesync systemd-timesync 0 Apr 26 17:15 fd
+dr-x------  2 systemd-timesync systemd-timesync 0 Apr 26 17:15 fdinfo
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 gid_map
+-r--------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 io
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 limits
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 loginuid
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 maps
+-rw-------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 mem
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 mountinfo
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 mounts
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 net
+dr-x--x--x  2 systemd-timesync systemd-timesync 0 Apr 26 17:15 ns
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 numa_maps
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 oom_adj
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 oom_score
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 oom_score_adj
+-r--------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 pagemap
+-r--------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 patch_state
+-r--------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 personality
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 projid_map
+lrwxrwxrwx  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 root
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 sched
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 schedstat
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 sessionid
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 setgroups
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 smaps
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 smaps_rollup
+-r--------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 stack
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 stat
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 statm
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 status
+-r--------  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 syscall
+-rw-r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 uid_map
+-r--r--r--  1 systemd-timesync systemd-timesync 0 Apr 26 17:15 wchan
+
+/home/deepthought/proc/1040/task/1040/attr:
+total 0
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 .
+dr-xr-xr-x 7 systemd-timesync systemd-timesync 0 Apr 25 16:42 ..
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 apparmor
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 current
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 display
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 exec
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 fscreate
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 keycreate
+-r--r--r-- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 prev
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 smack
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 sockcreate
+
+/home/deepthought/proc/1040/task/1040/attr/apparmor:
+total 0
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 .
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 ..
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 current
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 exec
+-r--r--r-- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 prev
+
+/home/deepthought/proc/1040/task/1040/attr/smack:
+total 0
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 .
+dr-xr-xr-x 2 systemd-timesync systemd-timesync 0 Apr 26 17:15 ..
+-rw-rw-rw- 1 systemd-timesync systemd-timesync 0 Apr 26 17:15 current
+ls: cannot open directory '/home/deepthought/proc/1040/task/1040/fd': Permission denied
+ls: cannot open directory '/home/deepthought/proc/1040/task/1040/fdinfo': Permission denied
+
+/home/deepthought/proc/1040/task/1040/net:
+total 0
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 .
+dr-xr-xr-x  7 systemd-timesync systemd-timesync 0 Apr 25 16:42 ..
+-r--r--r--  1 root             root             0 Apr 26 17:15 anycast6
+-r--r--r--  1 root             root             0 Apr 26 17:15 arp
+-r--r--r--  1 root             root             0 Apr 26 17:15 bnep
+-r--r--r--  1 root             root             0 Apr 26 17:15 connector
+-r--r--r--  1 root             root             0 Apr 26 17:15 dev
+-r--r--r--  1 root             root             0 Apr 26 17:15 dev_mcast
+dr-xr-xr-x  7 root             root             0 Apr 26 17:15 dev_snmp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 fib_trie
+-r--r--r--  1 root             root             0 Apr 26 17:15 fib_triestat
+-r--r--r--  1 root             root             0 Apr 26 17:15 hci
+-r--r--r--  1 root             root             0 Apr 26 17:15 icmp
+-r--r--r--  1 root             root             0 Apr 26 17:15 icmp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 if_inet6
+-r--r--r--  1 root             root             0 Apr 26 17:15 igmp
+-r--r--r--  1 root             root             0 Apr 26 17:15 igmp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip6_flowlabel
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip6_mr_cache
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip6_mr_vif
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip_mr_cache
+-r--r--r--  1 root             root             0 Apr 26 17:15 ip_mr_vif
+-r--r-----  1 root             root             0 Apr 26 17:15 ip_tables_matches
+-r--r-----  1 root             root             0 Apr 26 17:15 ip_tables_names
+-r--r-----  1 root             root             0 Apr 26 17:15 ip_tables_targets
+-r--r--r--  1 root             root             0 Apr 26 17:15 ipv6_route
+-r--r--r--  1 root             root             0 Apr 26 17:15 l2cap
+-r--r--r--  1 root             root             0 Apr 26 17:15 mcfilter
+-r--r--r--  1 root             root             0 Apr 26 17:15 mcfilter6
+dr-xr-xr-x  3 root             root             0 Apr 26 17:15 netfilter
+-r--r--r--  1 root             root             0 Apr 26 17:15 netlink
+-r--r--r--  1 root             root             0 Apr 26 17:15 netstat
+dr-xr-xr-x  4 root             root             0 Apr 26 17:15 nfsfs
+-r--r--r--  1 root             root             0 Apr 26 17:15 packet
+-r--r--r--  1 root             root             0 Apr 26 17:15 protocols
+-r--r--r--  1 root             root             0 Apr 26 17:15 psched
+-r--r--r--  1 root             root             0 Apr 26 17:15 ptype
+-r--r--r--  1 root             root             0 Apr 26 17:15 raw
+-r--r--r--  1 root             root             0 Apr 26 17:15 raw6
+-r--r--r--  1 root             root             0 Apr 26 17:15 rfcomm
+-r--r--r--  1 root             root             0 Apr 26 17:15 route
+dr-xr-xr-x 13 root             root             0 Apr 26 17:15 rpc
+-r--r--r--  1 root             root             0 Apr 26 17:15 rt6_stats
+-r--r--r--  1 root             root             0 Apr 26 17:15 rt_acct
+-r--r--r--  1 root             root             0 Apr 26 17:15 rt_cache
+-r--r--r--  1 root             root             0 Apr 26 17:15 sco
+-r--r--r--  1 root             root             0 Apr 26 17:15 snmp
+-r--r--r--  1 root             root             0 Apr 26 17:15 snmp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 sockstat
+-r--r--r--  1 root             root             0 Apr 26 17:15 sockstat6
+-r--r--r--  1 root             root             0 Apr 26 17:15 softnet_stat
+dr-xr-xr-x  5 root             root             0 Apr 26 17:15 stat
+-r--r--r--  1 root             root             0 Apr 26 17:15 tcp
+-r--r--r--  1 root             root             0 Apr 26 17:15 tcp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 udp
+-r--r--r--  1 root             root             0 Apr 26 17:15 udp6
+-r--r--r--  1 root             root             0 Apr 26 17:15 udplite
+-r--r--r--  1 root             root             0 Apr 26 17:15 udplite6
+-r--r--r--  1 root             root             0 Apr 26 17:15 unix
+-r--r--r--  1 root             root             0 Apr 26 17:15 wireless
+-r--r--r--  1 root             root             0 Apr 26 17:15 xfrm_stat
+
+/home/deepthought/proc/1040/task/1040/net/dev_snmp6:
+total 0
+dr-xr-xr-x  7 root             root             0 Apr 26 17:15 .
+dr-xr-xr-x 61 systemd-timesync systemd-timesync 0 Apr 26 17:15 ..
+-r--r--r--  1 root             root             0 Apr 26 17:15 eno2
+-r--r--r--  1 root             root             0 Apr 26 17:15 lo
+-r--r--r--  1 root             root             0 Apr 26 17:15 wlo1

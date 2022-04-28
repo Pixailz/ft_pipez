@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/04/28 10:49:09 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/04/28 20:05:48 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ endef
 
 # **************************************************************************** #
 # config
-CFLAGS			:= -Wall -Wextra -Werror
+CFLAGS			:= -Wall -Wextra -g #-Werror
 NAME			:= pipex
 RM				:= rm -rf
 CC				:= gcc
@@ -91,7 +91,7 @@ $(NAME):		$(OBJ)
 setup:				call_logo $(OBJ_DIR)
 
 $(OBJ_DIR):
-	@printf "$(font_callcolor)[$(green)+$(font_color)] Creation of $(bold)obj dir$(reset)\n"
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)obj dir$(reset)\n"
 	@mkdir -p $(OBJ_DIR)
 
 lib:			setup $(OBJ)

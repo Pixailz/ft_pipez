@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/04/23 20:03:35 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/01 23:32:50 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,87 +29,93 @@ ascii_color		:= $(bold)
 # **************************************************************************** #
 # utils
 
-define print_ascii
-	@printf "$(ascii_color)"
-	@printf "   ▄███████▄  ▄█     ▄███████▄    ▄████████  ▄███████▄  \n"
-	@printf "  ███    ███ ███    ███    ███   ███    ███ ██▀     ▄██ \n"
-	@printf "  ███    ███ ███▌   ███    ███   ███    █▀        ▄███▀\n"
-	@printf "  ███    ███ ███▌   ███    ███  ▄███▄▄▄      ▀█▀▄███▀▄▄\n"
-	@printf "▀█████████▀  ███▌ ▀█████████▀  ▀▀███▀▀▀       ▄███▀   ▀\n"
-	@printf "  ███        ███    ███          ███    █▄  ▄███▀\n"
-	@printf "  ███        ███    ███          ███    ███ ███▄     ▄█\n"
-	@printf " ▄████▀      █▀    ▄████▀        ██████████  ▀████████▀\n"
-	@printf "                                                                \n"
-	@printf "$(reset)"
+define ascii_art
+   ▄███████▄  ▄█     ▄███████▄    ▄████████  ▄███████▄
+  ███    ███ ███    ███    ███   ███    ███ ██▀     ▄██
+  ███    ███ ███▌   ███    ███   ███    █▀        ▄███▀
+  ███    ███ ███▌   ███    ███  ▄███▄▄▄      ▀█▀▄███▀▄▄
+▀█████████▀  ███▌ ▀█████████▀  ▀▀███▀▀▀       ▄███▀   ▀
+  ███        ███    ███          ███    █▄  ▄███▀
+  ███        ███    ███          ███    ███ ███▄     ▄█
+ ▄████▀      █▀    ▄████▀        ██████████  ▀████████▀
+$(reset)
 endef
+export ascii_art
 
 # **************************************************************************** #
 
 # **************************************************************************** #
 # config
-CFLAGS			:= -Wall -Wextra -Werror -O3
+CFLAGS			:= -Wall -Wextra -Werror #-g
 NAME			:= pipex
 RM				:= rm -rf
 CC				:= gcc
-PADDING			:= 25
-# SRC
-SRC_DIR			:= src
-SRC				:= $(wildcard $(SRC_DIR)/*.c)
+PADDING			:= 27
 
-SRC				:= $(sort $(SRC))
+# DIR
+BIN_DIR			:= bin
+SRC_DIR			:= src
+INC_DIR			:= includes
+OBJ_DIR			:= obj
+
+# SRC
+SRC_C			:= $(wildcard $(SRC_DIR)/*.c)
 
 # OBJ
-OBJ_DIR			:= obj
-OBJ				:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC:%.c=%.o))
+OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
 
 # LIB DIR
-LIB_DIR			:= lib
-CFLAGS			+= -I$(LIB_DIR)
+CFLAGS			+= -I$(INC_DIR)
 
 # **************************************************************************** #
 
 # **************************************************************************** #
-# Building rules
+# Rules
 
-all:			call_logo create_dir $(NAME)
+all:			setup $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-
-	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$<"
-	@printf "%0.s " $(shell seq 1 $(shell dc -e "$(PADDING) $(shell printf "$<" | wc -c) - p"))
-	@printf "$(blinking)$(font_color)-> $(reset)$(bold)$@ $(reset)\n"
+$(OBJ_DIR)/%.o: 		$(SRC_DIR)/%.c
+	@printf "  $(font_color)[$(green)+$(font_color)] Creation of $(bold)$<"
+	$(eval OBJ_LEN := $(shell printf $^ | wc -c))
+	$(eval PAD_LEN := $(shell expr $(PADDING) - $(OBJ_LEN)))
+	@printf "%-$(PAD_LEN)s" " "
+	@printf "$(blinking)$(font_color)-> $(reset)$(bold)$@ $(reset)"
+	@printf "\n"
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
-$(NAME):		$(OBJ)
-	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(NAME)$(reset)\n"
-	@$(CC) -o $(NAME) $(OBJ)
+$(NAME):				$(OBJ_C) $(BIN_DIR)
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(BIN_DIR)/$(NAME)$(reset)\n"
+	@$(CC) -o $(BIN_DIR)/$(NAME) $(OBJ_C)
 
-
-so: 			$(OBJ_ASM)
-	$(CC) -c -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o $(LIBSHARE) $(OBJ) $(OBJ_ASM)
-
-clean:
-	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)object folder$(reset)\n"
-	@$(RM) $(OBJ_DIR)
-	@$(RM) $(LIBSHARE)
-
-fclean:			clean
-	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(NAME)$(reset)\n"
-	@$(RM) $(NAME) $(LIBSHARE)
-
-re:				call_logo fclean create_dir $(NAME)
+setup:					call_logo $(OBJ_DIR)
 
 call_logo:
-	$(call print_ascii)
+	@printf "$(ascii_color)$$ascii_art"
 
-create_dir:
-	@if [ ! -d ./obj ];\
-	then printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)obj dir$(reset)\n";\
-	mkdir -p $(OBJ_DIR);\
-	printf "$(reset)";\
-	fi
+$(OBJ_DIR):
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(OBJ_DIR)$(reset)\n"
+	@mkdir -p $(OBJ_DIR)
 
-.PHONY:			all clean fclean re
+$(BIN_DIR):
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(BIN_DIR)$(reset)\n"
+	@mkdir -p $(BIN_DIR)
+
+clean:
+	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(OBJ_DIR)$(reset)\n"
+	@$(RM) $(OBJ_DIR)
+
+fclean:					clean
+	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(NAME)$(reset)\n"
+	@$(RM) $(NAME) $(LIBSHARE)
+	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(BIN_DIR)$(reset)\n"
+	@$(RM) $(BIN_DIR)
+
+re:						call_logo fclean $(OBJ_DIR) $(NAME)
+
+$(TEST_DIR):
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(TEST_DIR)$(reset)\n"
+	@mkdir -p $(TEST_DIR)
+
+.PHONY:					all clean fclean re setup lib call_logo so test
 
 # **************************************************************************** #

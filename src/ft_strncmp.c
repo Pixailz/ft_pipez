@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 19:11:18 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/27 19:11:24 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/27 16:15:30 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/27 16:15:43 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	size;
-	char	*ptr;
+	unsigned char	*ts1;
+	unsigned char	*ts2;
 
-	if (!s1 || !s2)
-		return (NULL);
-	size = ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1;
-	ptr = ft_calloc(1, size);
-	if (!ptr)
-		return (NULL);
-	ft_strcpy(ptr, (char *)s1);
-	ft_strcat(ptr, (char *)s2);
-	return (ptr);
+	if (!n)
+		return (0);
+	ts1 = (unsigned char *)s1;
+	ts2 = (unsigned char *)s2;
+	while (*ts1 && *ts2 && --n && *ts1 == *ts2)
+	{
+		ts1++;
+		ts2++;
+	}
+	return ((unsigned char)*ts1 - (unsigned char)*ts2);
 }

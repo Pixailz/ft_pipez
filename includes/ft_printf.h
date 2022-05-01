@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/27 16:16:37 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/27 16:18:30 by brda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -9,7 +21,6 @@
 // LIBRARY
 # include "utils.h"
 # include <stdarg.h>
-# include <unistd.h>
 # include <limits.h>
 
 // MAIN

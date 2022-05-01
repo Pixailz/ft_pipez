@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_get_words.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 19:11:18 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/27 19:11:24 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/27 17:58:46 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/27 17:59:59 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_get_words(char const *str, char c)
 {
-	size_t	size;
-	char	*ptr;
+	char	*tstr;
+	int		count;
 
-	if (!s1 || !s2)
-		return (NULL);
-	size = ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1;
-	ptr = ft_calloc(1, size);
-	if (!ptr)
-		return (NULL);
-	ft_strcpy(ptr, (char *)s1);
-	ft_strcat(ptr, (char *)s2);
-	return (ptr);
+	tstr = (char *)str;
+	count = 0;
+	while (*tstr)
+	{
+		while (*tstr && *tstr == c)
+			tstr++;
+		if (*tstr && *tstr != c)
+			count++;
+		while (*tstr && *tstr != c)
+			tstr++;
+	}
+	return (count);
 }

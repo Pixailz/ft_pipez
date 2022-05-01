@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtok.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 19:11:18 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/27 19:11:24 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/04/27 16:26:58 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/04/27 17:50:27 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strtok(char *str, char *token)
 {
-	size_t	size;
-	char	*ptr;
+	static char	*p;
 
-	if (!s1 || !s2)
+	if (str)
+		p = str;
+	if (!p || !token)
 		return (NULL);
-	size = ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1;
-	ptr = ft_calloc(1, size);
-	if (!ptr)
+	p += ft_strspn(p, token);
+	str = p;
+	if (!*str)
 		return (NULL);
-	ft_strcpy(ptr, (char *)s1);
-	ft_strcat(ptr, (char *)s2);
-	return (ptr);
+	p += ft_strcspn(str, token);
+	if (*p)
+		*p++ = 0;
+	if (*p == 0)
+		p = NULL;
+	return (str);
 }

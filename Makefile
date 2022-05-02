@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/01 23:38:52 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/02 01:44:58 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ export ascii_art
 
 # **************************************************************************** #
 # config
-CFLAGS			:= -Wall -Wextra -Werror #-g
+CFLAGS			:= -Wall -Wextra -Werror -g
 NAME			:= pipex
 RM				:= rm -rf
 CC				:= gcc
@@ -119,3 +119,4 @@ $(TEST_DIR):
 .PHONY:					all clean fclean re setup lib call_logo so test
 
 # **************************************************************************** #
+#run "data.txt" "cat -e" "sed -nE 's|[0-9]*(.*)|\1|p'" "outfile.txt"

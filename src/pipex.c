@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 03:14:24 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/02 03:44:11 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 void	init_pipex(t_pipex *pipex, char **argv, char **envp)
 {
-	t_cmd	*cmd1;
-	t_cmd	*cmd2;
+	int		i;
 
+	i = 0;
+	pipex->cmd = malloc(sizeof(t_cmd) * pipex->cmd_nb + 1);
 	pipex->path = get_path(envp);
-	cmd1 = get_command(pipex, argv[2]);
-	cmd2 = get_command(pipex, argv[3]);
-	pipex->cmd1 = cmd1;
-	pipex->cmd2 = cmd2;
+	while (i < pipex->cmd_nb)
+	{
+		pipex->cmd[i] = get_command(pipex, argv[2 + i]);
+		i++;
+	}
 	pipex->infile = open(argv[1], O_RDONLY);
-	pipex->outfile = open(argv[4], O_TRUNC | O_CREAT | O_RDWR, 0000644);
+	pipex->outfile = open(argv[pipex->cmd_nb + 2], \
+							O_TRUNC | O_CREAT | O_RDWR, 0000644);
 	pipe(pipex->end);
 }
 
@@ -34,9 +37,11 @@ int	main(int argc, char **argv, char **envp)
 	if (argc < 5)
 		return (ft_error("Not enough args"));
 	pipex = malloc(sizeof(t_pipex));
+	pipex->cmd_nb = argc - 3;
 	init_pipex(pipex, argv, envp);
 	do_command(pipex, -1);
 	do_command(pipex, 1);
 	free_pipex(pipex);
+	return (0);
 }
 // run "data.txt" "cat -e" "sed -nE 's|[0-9]*(.*)|\1|p'" "outfile.txt"

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:19:43 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 02:48:33 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/02 03:52:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,14 @@ void	free_pipex(t_pipex *pipex)
 	size_t	i;
 
 	i = 0;
-	free_command(pipex->cmd1);
-	pipex->cmd1 = NULL;
-	free_command(pipex->cmd2);
-	pipex->cmd2 = NULL;
+	while (i < (size_t)pipex->cmd_nb)
+	{
+		free_command(pipex->cmd[i]);
+		pipex->cmd[i] = NULL;
+		i++;
+	}
+	free(pipex->cmd);
+	i = 0;
 	while (pipex->path[i])
 	{
 		free(pipex->path[i]);

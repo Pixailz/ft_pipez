@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 02:31:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 02:41:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/02 03:41:06 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	do_command_infile(t_pipex *pipex)
 		dup2(pipex->end[1], 1);
 		close(pipex->end[0]);
 		dup2(pipex->infile, 0);
-		execve(pipex->cmd1->cmd_path, pipex->cmd1->cmd, pipex->path);
+		execve(pipex->cmd[0]->cmd_path, pipex->cmd[0]->cmd, pipex->path);
 	}
 }
 
@@ -32,7 +32,9 @@ void	do_command_outfile(t_pipex *pipex)
 		dup2(pipex->end[0], 0);
 		close(pipex->end[1]);
 		dup2(pipex->outfile, 1);
-		execve(pipex->cmd2->cmd_path, pipex->cmd2->cmd, pipex->path);
+		execve(pipex->cmd[pipex->cmd_nb - 1]->cmd_path, \
+				pipex->cmd[pipex->cmd_nb - 1]->cmd, \
+				pipex->path);
 	}
 }
 

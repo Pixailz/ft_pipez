@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 00:30:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 17:50:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:50:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_cmd	*get_command(t_pipex *pipex, char *cmd_str)
 	if (!cmd->cmd_path)
 	{
 		free_unfinished(pipex, cmd);
-		ft_error("command not found");
+		ft_error(cmd_str);
 	}
 	if (cmd->size == 1)
 		return (cmd);

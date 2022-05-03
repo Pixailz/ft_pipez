@@ -6,11 +6,23 @@
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 18:07:17 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:00:03 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	init_file(t_pipex *pipex, char **argv)
+{
+	pipex->infile = open(argv[1], O_RDONLY);
+	if (pipex->infile < 0)
+	{
+		free_pipex(pipex);
+		ft_error(argv[1]);
+	}
+	pipex->outfile = open(argv[pipex->cmd_nb + 2], \
+							O_TRUNC | O_CREAT | O_RDWR, 0000644);
+}
 
 void	init_pipex(t_pipex *pipex, char **argv, char **envp)
 {
@@ -30,14 +42,9 @@ void	init_pipex(t_pipex *pipex, char **argv, char **envp)
 	while (i < pipex->cmd_nb - 1)
 	{
 		pipex->pipe[i] = malloc(sizeof(int) * 2);
-		pipe(pipex->pipe[i]);
-		i++;
+		pipe(pipex->pipe[i++]);
 	}
-	pipex->infile = open(argv[1], O_RDONLY);
-	if (pipex->infile < 0)
-		ft_printf("ERROR: infile not found\n");
-	pipex->outfile = open(argv[pipex->cmd_nb + 2], \
-							O_TRUNC | O_CREAT | O_RDWR, 0000644);
+	init_file(pipex, argv);
 }
 
 int	main(int argc, char **argv, char **envp)

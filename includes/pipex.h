@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <sys/wait.h>
+# include <errno.h>
 
 // STRUCT
 typedef struct s_cmd

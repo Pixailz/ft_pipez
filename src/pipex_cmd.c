@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_cmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 00:30:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 02:49:37 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 17:50:50 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ char	*check_path(t_pipex *pipex, char *cmd_str)
 		tmp = ft_strjoin(*tmp_path, "/");
 		tmp_cmd = ft_strjoin(tmp, cmd_str);
 		free(tmp);
-		if (access(tmp_cmd, F_OK) == 0)
-			if (access(tmp_cmd, X_OK) == 0)
-				return (tmp_cmd);
+		if (access(tmp_cmd, F_OK | X_OK) == 0)
+			return (tmp_cmd);
 		free(tmp_cmd);
 		tmp_path++;
 	}
@@ -74,7 +73,10 @@ t_cmd	*get_command(t_pipex *pipex, char *cmd_str)
 	ft_strcpy(cmd->cmd[i], token);
 	cmd->cmd_path = check_path(pipex, cmd->cmd[i]);
 	if (!cmd->cmd_path)
-		return (NULL);
+	{
+		free_unfinished(pipex, cmd);
+		ft_error("command not found");
+	}
 	if (cmd->size == 1)
 		return (cmd);
 	token = ft_strtok(NULL, " ");

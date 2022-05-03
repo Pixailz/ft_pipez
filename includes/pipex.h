@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 03:51:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 03:28:31 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 13:32:17 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ typedef struct s_pipex
 {
 	t_cmd	**cmd;
 	int		cmd_nb;
+	pid_t	pid;
 	pid_t	pid1;
 	pid_t	pid2;
 	int		infile;
 	int		outfile;
 	int		end[2];
+	int		end2[2];
 	char	**path;
 }	t_pipex;
 

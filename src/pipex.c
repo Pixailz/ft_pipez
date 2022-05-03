@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 03:44:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 13:31:46 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,47 @@ int	main(int argc, char **argv, char **envp)
 	free_pipex(pipex);
 	return (0);
 }
+
+/*
+int	main(int argc, char **argv, char **envp)
+{
+	t_pipex	*pipex;
+
+	if (argc < 5)
+		return (ft_error("Not enough args"));
+	pipex = malloc(sizeof(t_pipex));
+	pipex->cmd_nb = argc - 3;
+	init_pipex(pipex, argv, envp);
+	pipe(pipex->end);
+	pipe(pipex->end2);
+	pipex->pid = fork ();
+	if (pipex->pid == 0)
+	{
+		dup2(pipex->end[1], 1);
+		close(pipex->end[0]);
+		dup2(pipex->infile, 0);
+		execve(pipex->cmd[0]->cmd_path, pipex->cmd[0]->cmd, pipex->path);
+	}
+	pipex->pid = fork ();
+	if (pipex->pid == 0)
+	{
+		dup2(pipex->end[0], 0);
+		dup2(pipex->end2[1], 1);
+		close(pipex->end2[0]);
+		execve(pipex->cmd[1]->cmd_path, pipex->cmd[1]->cmd, pipex->path);
+	}
+	pipex->pid = fork ();
+	if (pipex->pid == 0)
+	{
+		dup2(pipex->end2[0], 0);
+		close(pipex->end2[1]);
+		dup2(pipex->outfile, 1);
+		execve(pipex->cmd[pipex->cmd_nb - 1]->cmd_path, \
+				pipex->cmd[pipex->cmd_nb - 1]->cmd, \
+				pipex->path);
+	}
+	free_pipex(pipex);
+	return (0);
+}
+*/
 // run "data.txt" "cat -e" "sed -nE 's|[0-9]*(.*)|\1|p'" "outfile.txt"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 00:58:36 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 01:40:12 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:46:28 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 int	ft_error(char *msg)
 {
-	ft_printf("ERROR : %s\n", msg);
-	exit(1);
+	if (errno)
+	{
+		perror(msg);
+		exit(errno);
+	}
+	else
+	{
+		ft_printf("ERROR : %s\n", msg);
+		exit(1);
+	}
 }

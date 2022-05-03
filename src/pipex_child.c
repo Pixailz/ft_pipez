@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 02:31:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 23:53:27 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/04 00:17:41 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ void	do_command_infile(t_pipex *pipex)
 	}
 	close(pipex->pipe[0][1]);
 	close(pipex->infile);
+}
+
+void	do_command_begin(t_pipex *pipex)
+{
+	pipex->pid = fork();
+	if (pipex->pid == 0)
+	{
+		dup2(pipex->pipe[0][1], 1);
+		dup2(pipex->pipe[0][0], 0);
+		execve(pipex->cmd[pipex->pidid]->cmd_path, \
+				pipex->cmd[pipex->pidid]->cmd, \
+				pipex->path);
+	}
+	close(pipex->pipe[0][1]);
 }
 
 void	do_command_between(t_pipex *pipex)
@@ -62,9 +76,13 @@ void	do_command_outfile(t_pipex *pipex)
 
 void	do_command(t_pipex *pipex)
 {
-	waitpid(pipex->pid, NULL, 0);
 	if (pipex->pidid == 0)
-		do_command_infile(pipex);
+	{
+		if (pipex->here_cmd)
+			do_command_begin(pipex);
+		else
+			do_command_infile(pipex);
+	}
 	else if (pipex->pidid == pipex->cmd_nb - 1)
 		do_command_outfile(pipex);
 	else

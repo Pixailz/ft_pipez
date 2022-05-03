@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 23:42:35 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/04 00:08:16 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,21 @@ int	have_her_doc(char *arg)
 		return (0);
 }
 
+int	have_her_cmd(char *arg)
+{
+	if (arg && !ft_strncmp("here_cmd", arg, 9))
+		return (1);
+	else
+		return (0);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	*pipex;
 
 	pipex = malloc(sizeof(t_pipex));
 	pipex->here_doc = have_her_doc(argv[1]);
+	pipex->here_cmd = have_her_cmd(argv[1]);
 	if (argc < 5 + pipex->here_doc)
 	{
 		free(pipex);

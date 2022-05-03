@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 03:51:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 23:49:01 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/04 00:19:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_pipex
 	int		cmd_nb;
 	int		cmd_success;
 	int		here_doc;
+	int		here_cmd;
 	pid_t	pid;
 	int		pidid;
 	int		infile;
@@ -99,7 +100,8 @@ char	**get_path(char **env);
 /* ############# */
 
 void	do_command(t_pipex *pipex);
-void	do_command_outfile(t_pipex *pipex);
+void	do_command_infile(t_pipex *pipex);
+void	do_command_begin(t_pipex *pipex);
 void	do_command_between(t_pipex *pipex);
 void	do_command_outfile(t_pipex *pipex);
 

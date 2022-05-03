@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:17:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/04 00:00:55 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/04 00:11:19 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,18 @@ void	here_doc(char *limiter, t_pipex *pipex)
 
 void	init_file(t_pipex *pipex, char **argv)
 {
-	if (!ft_strncmp("here_doc", argv[1], 9))
-		here_doc(argv[2], pipex);
-	else
+	if (!pipex->here_cmd)
 	{
-		pipex->infile = open(argv[1], O_RDONLY);
-		if (pipex->infile < 0)
+		if (!ft_strncmp("here_doc", argv[1], 9))
+			here_doc(argv[2], pipex);
+		else
 		{
-			free_pipex(pipex);
-			ft_error(argv[1]);
+			pipex->infile = open(argv[1], O_RDONLY);
+			if (pipex->infile < 0)
+			{
+				free_pipex(pipex);
+				ft_error(argv[1]);
+			}
 		}
 	}
 	pipex->outfile = open(argv[pipex->cmd_nb + 2 + pipex->here_doc], \

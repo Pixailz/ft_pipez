@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 13:14:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 19:37:00 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 21:32:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 # include "utils.h"
 
 // MAIN
-int		get_next_line(int fd, char **buf);
+char	*get_next_line(int fd);
+char	*ft_line(char *buf);
 char	*ft_stash(char *s);
 char	*ft_read(int fd, char *buf);
-char	*ft_line(char *buf);
 
 #endif

@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 19:53:59 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 21:49:00 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	args_in(char *arg, t_pipex *pipex)
+int	args_in(char *arg)
 {
 	if (arg && !ft_strncmp("here_doc", arg, 9))
-	{
-		pipex->here_doc = 1;
-		return (6);
-	}
+		return (1);
 	else
-	{
-		pipex->here_doc = 0;
-		return (5);
-	}
+		return (0);
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -31,7 +25,8 @@ int	main(int argc, char **argv, char **envp)
 	t_pipex	*pipex;
 
 	pipex = malloc(sizeof(t_pipex));
-	if (argc < args_in(argv[1], pipex))
+	pipex->here_doc = args_in(argv[1]);
+	if (argc < 5 + pipex->here_doc)
 	{
 		free(pipex);
 		return (ft_error("Not enough args"));

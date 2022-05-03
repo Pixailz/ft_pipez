@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:17:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 19:38:55 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 21:43:48 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	here_doc(char *limiter, t_pipex *pipex)
 	file = open(".heredoc_tmp", O_CREAT | O_WRONLY | O_TRUNC, 0000644);
 	while (1)
 	{
-		ft_putstr("heredoc>");
-		if (get_next_line(1, &buf))
+		ft_putstr("heredoc> ");
+		buf = get_next_line(1);
+		if (!buf)
 			exit(1);
 		if (!ft_strncmp(limiter, buf, ft_strlen(limiter) + 1))
 			break ;
@@ -52,7 +53,7 @@ void	init_file(t_pipex *pipex, char **argv)
 			ft_error(argv[1]);
 		}
 	}
-	pipex->outfile = open(argv[pipex->cmd_nb + 2], \
+	pipex->outfile = open(argv[pipex->cmd_nb + 3], \
 							O_TRUNC | O_CREAT | O_RDWR, 0000644);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_child.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 02:31:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 17:18:03 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 23:53:27 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	do_command_infile(t_pipex *pipex)
 				pipex->cmd[pipex->pidid]->cmd, \
 				pipex->path);
 	}
+	close(pipex->pipe[0][1]);
+	close(pipex->infile);
 }
 
 void	do_command_between(t_pipex *pipex)
@@ -38,6 +40,8 @@ void	do_command_between(t_pipex *pipex)
 				pipex->cmd[pipex->pidid]->cmd, \
 				pipex->path);
 	}
+	close(pipex->pipe[pipex->pidid - 1][0]);
+	close(pipex->pipe[pipex->pidid][1]);
 }
 
 void	do_command_outfile(t_pipex *pipex)
@@ -52,15 +56,19 @@ void	do_command_outfile(t_pipex *pipex)
 				pipex->cmd[pipex->pidid]->cmd, \
 				pipex->path);
 	}
+	close(pipex->pipe[pipex->pidid - 1][0]);
+	close(pipex->outfile);
 }
 
 void	do_command(t_pipex *pipex)
 {
+	waitpid(pipex->pid, NULL, 0);
 	if (pipex->pidid == 0)
 		do_command_infile(pipex);
 	else if (pipex->pidid == pipex->cmd_nb - 1)
 		do_command_outfile(pipex);
 	else
 		do_command_between(pipex);
+	waitpid(pipex->pid, NULL, 0);
 	pipex->pidid++;
 }

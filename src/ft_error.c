@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 00:58:36 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 18:46:28 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 23:42:17 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "utils.h"
+#include <errno.h>
+#include "ft_printf.h"
 
 int	ft_error(char *msg)
 {

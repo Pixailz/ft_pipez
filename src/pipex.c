@@ -6,13 +6,13 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 21:49:00 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 23:42:35 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	args_in(char *arg)
+int	have_her_doc(char *arg)
 {
 	if (arg && !ft_strncmp("here_doc", arg, 9))
 		return (1);
@@ -25,7 +25,7 @@ int	main(int argc, char **argv, char **envp)
 	t_pipex	*pipex;
 
 	pipex = malloc(sizeof(t_pipex));
-	pipex->here_doc = args_in(argv[1]);
+	pipex->here_doc = have_her_doc(argv[1]);
 	if (argc < 5 + pipex->here_doc)
 	{
 		free(pipex);

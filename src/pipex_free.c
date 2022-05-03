@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:19:43 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 17:55:43 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:52:44 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	free_pipex(t_pipex *pipex)
 {
 	size_t	i;
 
+	if (pipex->here_doc)
+		unlink(".heredoc_tmp");
 	i = 0;
 	while (pipex->cmd[i])
 		free_command(pipex->cmd[i++]);

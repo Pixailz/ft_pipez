@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 13:14:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/27 16:18:43 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:37:00 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "utils.h"
 
 // MAIN
-char	*get_next_line(int fd);
+int		get_next_line(int fd, char **buf);
 char	*ft_stash(char *s);
 char	*ft_read(int fd, char *buf);
 char	*ft_line(char *buf);

@@ -6,55 +6,37 @@
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 19:00:03 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:53:59 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	init_file(t_pipex *pipex, char **argv)
+int	args_in(char *arg, t_pipex *pipex)
 {
-	pipex->infile = open(argv[1], O_RDONLY);
-	if (pipex->infile < 0)
+	if (arg && !ft_strncmp("here_doc", arg, 9))
 	{
-		free_pipex(pipex);
-		ft_error(argv[1]);
+		pipex->here_doc = 1;
+		return (6);
 	}
-	pipex->outfile = open(argv[pipex->cmd_nb + 2], \
-							O_TRUNC | O_CREAT | O_RDWR, 0000644);
-}
-
-void	init_pipex(t_pipex *pipex, char **argv, char **envp)
-{
-	int		i;
-
-	pipex->cmd = malloc(sizeof(t_cmd) * pipex->cmd_nb + 1);
-	pipex->pipe = malloc(sizeof(int *) * pipex->cmd_nb);
-	pipex->path = get_path(envp);
-	i = 0;
-	while (i < pipex->cmd_nb)
+	else
 	{
-		pipex->cmd[i] = get_command(pipex, argv[2 + i]);
-		pipex->cmd_success++;
-		i++;
+		pipex->here_doc = 0;
+		return (5);
 	}
-	i = 0;
-	while (i < pipex->cmd_nb - 1)
-	{
-		pipex->pipe[i] = malloc(sizeof(int) * 2);
-		pipe(pipex->pipe[i++]);
-	}
-	init_file(pipex, argv);
 }
 
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	*pipex;
 
-	if (argc < 5)
-		return (ft_error("Not enough args"));
 	pipex = malloc(sizeof(t_pipex));
-	pipex->cmd_nb = argc - 3;
+	if (argc < args_in(argv[1], pipex))
+	{
+		free(pipex);
+		return (ft_error("Not enough args"));
+	}
+	pipex->cmd_nb = argc - 3 - pipex->here_doc;
 	pipex->cmd_success = 0;
 	init_pipex(pipex, argv, envp);
 	pipex->pidid = 0;

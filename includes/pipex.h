@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 03:51:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 18:45:56 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:30:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_pipex
 	t_cmd	**cmd;
 	int		cmd_nb;
 	int		cmd_success;
+	int		here_doc;
 	pid_t	pid;
 	int		pidid;
 	int		infile;
@@ -60,5 +61,8 @@ void	free_unfinished(t_pipex *pipex, t_cmd *cmd);
 void	do_command(t_pipex *pipex);
 void	do_command_outfile(t_pipex *pipex);
 void	do_command_outfile(t_pipex *pipex);
+void	init_file(t_pipex *pipex, char **argv);
+void	init_pipex(t_pipex *pipex, char **argv, char **envp);
+void	here_doc(char *limiter, t_pipex *pipex);
 
 #endif

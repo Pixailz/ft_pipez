@@ -50,7 +50,7 @@ void	free_pipex(t_pipex *pipex)
 	if (pipex->here_doc)
 		unlink(".heredoc_tmp");
 	i = 0;
-	while (pipex->cmd[i])
+	while (i < (size_t)pipex->cmd_success)
 		free_command(pipex->cmd[i++]);
 	free(pipex->cmd);
 	i = 0;

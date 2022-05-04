@@ -17,3 +17,8 @@ bash$ ./bin/pipex "infile" "cmd1" "cmd2" ... "cmdN" "outfile"
 bash$ ./bin/pipex "here_doc" "limiter" "cmd1" "cmd2" ... "cmdN" "outfile"
 bash$ ./bin/pipex "here_cmd" "cmd1" "cmd2" ... "cmdN" "outfile"
 ```
+
+## TODO
+
+1. fix invalid write/read of size 1 with get_next_line
+2. pimp Makefile :)

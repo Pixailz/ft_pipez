@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 03:51:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/04 00:19:18 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/04 23:55:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 typedef struct s_cmd
 {
-	char	**cmd;
+	char	*cmd_str;
 	char	*cmd_path;
 	size_t	size;
 }	t_cmd;
@@ -89,7 +89,6 @@ void	free_command(t_cmd *cmd);
 /* ########### */
 
 t_cmd	*get_command(t_pipex *pipex, char *cmd_str);
-void	get_command_arg(t_cmd *cmd, char *token);
 char	*check_path(t_pipex *pipex, char *cmd_str);
 char	**get_path(char **env);
 
@@ -100,10 +99,10 @@ char	**get_path(char **env);
 /* ############# */
 
 void	do_command(t_pipex *pipex);
-void	do_command_infile(t_pipex *pipex);
-void	do_command_begin(t_pipex *pipex);
-void	do_command_between(t_pipex *pipex);
-void	do_command_outfile(t_pipex *pipex);
+void	do_command_infile(t_pipex *pipex, char **cmd_arg);
+void	do_command_begin(t_pipex *pipex, char **cmd_arg);
+void	do_command_between(t_pipex *pipex, char **cmd_arg);
+void	do_command_outfile(t_pipex *pipex, char **cmd_arg);
 
 /* ########################################################################## */
 

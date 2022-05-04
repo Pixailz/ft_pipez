@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:19:43 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 19:52:44 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 00:15:31 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,8 @@
 
 void	free_command(t_cmd *cmd)
 {
-	size_t	i;
-
-	i = 0;
-	if (cmd->size)
-	{
-		while (i < cmd->size)
-		{
-			free(cmd->cmd[i]);
-			cmd->cmd[i] = NULL;
-			i++;
-		}
-		free(cmd->cmd);
-	}
+	free(cmd->cmd_str);
+	cmd->cmd_str = NULL;
 	free(cmd->cmd_path);
 	cmd->cmd_path = NULL;
 	free(cmd);

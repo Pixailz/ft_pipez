@@ -18,7 +18,7 @@ void	here_doc(char *limiter, t_pipex *pipex)
 	char	*buf;
 
 	file = open(".heredoc_tmp", O_CREAT | O_WRONLY | O_TRUNC, 0000644);
-	while (1)
+	while (VRAI)
 	{
 		ft_putstr("heredoc> ");
 		buf = get_next_line(1);

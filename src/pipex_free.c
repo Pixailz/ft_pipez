@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:19:43 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/05 00:15:31 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 01:45:38 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_pipes(t_pipex *pipex)
 	int	i;
 
 	i = 0;
-	while (i < pipex->cmd_nb - 1)
+	while (i < pipex->cmd_success - 1)
 		free(pipex->pipe[i++]);
 	free(pipex->pipe);
 }

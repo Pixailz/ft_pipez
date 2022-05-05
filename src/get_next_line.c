@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 13:14:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/03 21:57:30 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 21:22:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_stash(char *s)
 	start = ft_memchr(s, '\n');
 	if (!start)
 		return (NULL);
-	new = (char *)malloc((ft_strlen(s) - (start - s)));
+	new = (char *)malloc((ft_strlen(s) - (start - s) + 1));
 	if (!new)
 		return (NULL);
 	tmp = new;
@@ -70,10 +70,10 @@ char	*ft_line(char *buf)
 	char	*new;
 	char	*end;
 
-	end = ft_memchr(buf, '\n') - 1;
+	end = ft_memchr(buf, '\n');
 	if (!end)
 		return (buf);
-	new = (char *)malloc(end - buf);
+	new = (char *)malloc(end - buf + 1);
 	if (!new)
 		return (NULL);
 	tmp = new;

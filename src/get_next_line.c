@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 13:14:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/05 21:22:56 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 21:25:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ char	*ft_stash(char *s)
 
 	if (!s)
 		return (NULL);
+	if (*s)
+	{
+		free(s);
+		return (NULL);
+	}
 	start = ft_memchr(s, '\n');
 	if (!start)
 		return (NULL);

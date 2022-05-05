@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 03:51:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/05 01:31:13 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 02:03:29 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_cmd
 {
 	char	*cmd_str;
 	char	*cmd_path;
-	size_t	size;
 }	t_cmd;
 
 typedef struct s_pipex

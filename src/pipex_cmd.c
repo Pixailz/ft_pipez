@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 00:30:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/05 00:14:56 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 02:03:34 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ t_cmd	*get_command(t_pipex *pipex, char *cmd_str)
 	char	*token;
 
 	cmd = malloc(sizeof(t_cmd));
-	cmd->size = ft_get_words(cmd_str, ' ');
 	cmd->cmd_str = (char *)malloc(sizeof(char) * ft_strlen(cmd_str) + 1);
 	ft_strcpy(cmd->cmd_str, cmd_str);
 	token = ft_strtok(cmd_str, " ");

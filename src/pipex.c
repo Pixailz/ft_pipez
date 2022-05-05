@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:02:50 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/05 15:40:09 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 18:18:58 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv, char **envp)
 	t_pipex	*pipex;
 
 	pipex = malloc(sizeof(t_pipex));
-	if (argc < 5)
+	if (argc != 5)
 	{
 		free(pipex);
 		return (ft_error("Wrong args"));

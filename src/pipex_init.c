@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:17:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/04 00:11:19 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 21:18:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	here_doc(char *limiter, t_pipex *pipex)
 		buf = get_next_line(1);
 		if (!buf)
 			exit(1);
-		if (!ft_strncmp(limiter, buf, ft_strlen(limiter) + 1))
+		if (!ft_strncmp(limiter, buf, ft_strlen(limiter)))
 			break ;
 		write(file, buf, ft_strlen(buf));
 		write(file, "\n", 1);

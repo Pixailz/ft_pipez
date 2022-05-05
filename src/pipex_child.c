@@ -6,40 +6,60 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 02:31:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 02:41:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:43:36 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	do_command_infile(t_pipex *pipex)
+void	do_command_infile(t_pipex *pipex, char **cmd_arg)
 {
-	pipex->pid1 = fork();
-	if (pipex->pid1 == 0)
+	pipex->pid = fork();
+	if (pipex->pid == 0)
 	{
-		dup2(pipex->end[1], 1);
-		close(pipex->end[0]);
+		dup2(pipex->pipe[0][1], 1);
+		close(pipex->pipe[0][0]);
 		dup2(pipex->infile, 0);
-		execve(pipex->cmd1->cmd_path, pipex->cmd1->cmd, pipex->path);
+		execve(pipex->cmd[pipex->pidid]->cmd_path, \
+				cmd_arg, \
+				pipex->path);
 	}
+	close(pipex->pipe[0][1]);
+	close(pipex->infile);
 }
 
-void	do_command_outfile(t_pipex *pipex)
+void	do_command_outfile(t_pipex *pipex, char **cmd_arg)
 {
-	pipex->pid2 = fork();
-	if (pipex->pid2 == 0)
+	pipex->pid = fork();
+	if (pipex->pid == 0)
 	{
-		dup2(pipex->end[0], 0);
-		close(pipex->end[1]);
+		dup2(pipex->pipe[pipex->pidid - 1][0], 0);
+		close(pipex->pipe[pipex->pidid - 1][1]);
 		dup2(pipex->outfile, 1);
-		execve(pipex->cmd2->cmd_path, pipex->cmd2->cmd, pipex->path);
+		execve(pipex->cmd[pipex->pidid]->cmd_path, \
+				cmd_arg, \
+				pipex->path);
 	}
+	close(pipex->pipe[pipex->pidid - 1][0]);
+	close(pipex->outfile);
 }
 
-void	do_command(t_pipex *pipex, int mode)
+void	do_command(t_pipex *pipex)
 {
-	if (mode == -1)
-		do_command_infile(pipex);
-	else if (mode == 1)
-		do_command_outfile(pipex);
+	char	**cmd_arg;
+	int		m;
+	int		i;
+
+	m = ft_get_words(pipex->cmd[pipex->pidid]->cmd_str, ' ');
+	cmd_arg = ft_split(pipex->cmd[pipex->pidid]->cmd_str, ' ');
+	if (pipex->pidid == 0)
+		do_command_infile(pipex, cmd_arg);
+	else if (pipex->pidid == pipex->cmd_nb - 1)
+		do_command_outfile(pipex, cmd_arg);
+	i = 0;
+	while (i < m)
+		free(cmd_arg[i++]);
+	free(cmd_arg);
+	waitpid(pipex->pid, NULL, 0);
+	pipex->pidid++;
 }

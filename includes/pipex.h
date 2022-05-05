@@ -6,54 +6,89 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 03:51:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 02:16:00 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:22:00 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-// LIBRARY
+/* ########################################################################## */
+/* INCLUDE */
+/* ####### */
+
 # include "utils.h"
 # include "ft_printf.h"
-# include "get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
+# include <sys/wait.h>
 
-// STRUCT
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* STRUCT */
+/* ###### */
+
 typedef struct s_cmd
 {
-	char	**cmd;
+	char	*cmd_str;
 	char	*cmd_path;
-	size_t	size;
 }	t_cmd;
 
 typedef struct s_pipex
 {
-	t_cmd	*cmd1;
-	t_cmd	*cmd2;
-	pid_t	pid1;
-	pid_t	pid2;
+	t_cmd	**cmd;
+	int		cmd_nb;
+	int		cmd_success;
+	pid_t	pid;
+	int		pidid;
 	int		infile;
 	int		outfile;
-	int		end[2];
+	int		**pipe;
 	char	**path;
 }	t_pipex;
 
-// CONFIG
+/* ########################################################################## */
 
-// MAIN
+/* ########################################################################## */
+/* pipex_init.c */
+/* ############ */
 
-// UTILS
-int		ft_error(char *msg);
-char	**get_path(char **env);
-t_cmd	*get_command(t_pipex *pipex, char *cmd_str);
-void	get_command_arg(t_cmd *cmd, char *token);
-char	*check_path(t_pipex *pipex, char *cmd_str);
+void	init_file(t_pipex *pipex, char **argv);
+void	init_pipex(t_pipex *pipex, char **argv, char **envp);
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* pipex_free.c */
+/* ############ */
+
 void	close_pipex(t_pipex *pipex);
+void	free_unfinished(t_pipex *pipex, t_cmd *cmd);
 void	free_pipex(t_pipex *pipex);
-void	do_command(t_pipex *pipex, int mode);
-void	do_command_outfile(t_pipex *pipex);
-void	do_command_outfile(t_pipex *pipex);
+void	free_pipes(t_pipex *pipex);
+void	free_command(t_cmd *cmd);
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* pipex_cmd.c */
+/* ########### */
+
+t_cmd	*get_command(t_pipex *pipex, char *cmd_str);
+char	*check_path(t_pipex *pipex, char *cmd_str);
+char	**get_path(char **env);
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* pipex_child.c */
+/* ############# */
+
+void	do_command(t_pipex *pipex);
+void	do_command_infile(t_pipex *pipex, char **cmd_arg);
+void	do_command_outfile(t_pipex *pipex, char **cmd_arg);
+
+/* ########################################################################## */
 
 #endif

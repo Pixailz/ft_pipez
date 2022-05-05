@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 00:30:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 02:49:37 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 02:03:34 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,48 +36,28 @@ char	*check_path(t_pipex *pipex, char *cmd_str)
 		tmp = ft_strjoin(*tmp_path, "/");
 		tmp_cmd = ft_strjoin(tmp, cmd_str);
 		free(tmp);
-		if (access(tmp_cmd, F_OK) == 0)
-			if (access(tmp_cmd, X_OK) == 0)
-				return (tmp_cmd);
+		if (access(tmp_cmd, F_OK | X_OK) == 0)
+			return (tmp_cmd);
 		free(tmp_cmd);
 		tmp_path++;
 	}
 	return (NULL);
 }
 
-void	get_command_arg(t_cmd *cmd, char *token)
-{
-	size_t	i;
-
-	i = 1;
-	while (token)
-	{
-		cmd->cmd[i] = (char *)malloc(sizeof(char) * ft_strlen(token) + 1);
-		ft_strcpy(cmd->cmd[i], token);
-		token = ft_strtok(NULL, " ");
-		i++;
-	}
-}
-
 t_cmd	*get_command(t_pipex *pipex, char *cmd_str)
 {
 	t_cmd	*cmd;
 	char	*token;
-	int		i;
 
-	i = 0;
 	cmd = malloc(sizeof(t_cmd));
-	cmd->size = ft_get_words(cmd_str, ' ');
-	cmd->cmd = (char **)malloc(sizeof(char *) * cmd->size + 1);
+	cmd->cmd_str = (char *)malloc(sizeof(char) * ft_strlen(cmd_str) + 1);
+	ft_strcpy(cmd->cmd_str, cmd_str);
 	token = ft_strtok(cmd_str, " ");
-	cmd->cmd[i] = (char *)malloc(sizeof(char) * ft_strlen(token) + 1);
-	ft_strcpy(cmd->cmd[i], token);
-	cmd->cmd_path = check_path(pipex, cmd->cmd[i]);
+	cmd->cmd_path = check_path(pipex, token);
 	if (!cmd->cmd_path)
-		return (NULL);
-	if (cmd->size == 1)
-		return (cmd);
-	token = ft_strtok(NULL, " ");
-	get_command_arg(cmd, token);
+	{
+		free_unfinished(pipex, cmd);
+		ft_error(cmd_str);
+	}
 	return (cmd);
 }

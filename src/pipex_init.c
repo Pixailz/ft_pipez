@@ -24,7 +24,8 @@ void	here_doc(char *limiter, t_pipex *pipex)
 		buf = get_next_line(1);
 		if (!buf)
 			exit(1);
-		if (!ft_strncmp(limiter, buf, ft_strlen(limiter)))
+		if (buf[ft_strlen(limiter)] == '\n' && \
+		!ft_strncmp(limiter, buf, ft_strlen(limiter)))
 			break ;
 		write(file, buf, ft_strlen(buf) - 1);
 		write(file, "\n", 1);

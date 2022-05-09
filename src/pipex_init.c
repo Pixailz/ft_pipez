@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:17:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/05 21:30:02 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:28:25 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,15 @@ void	here_doc(char *limiter, t_pipex *pipex)
 
 void	init_file(t_pipex *pipex, char **argv)
 {
-	if (!pipex->here_cmd)
+	if (pipex->here_doc)
 	{
-		if (!ft_strncmp("here_doc", argv[1], 9))
-			here_doc(argv[2], pipex);
-		else
+		here_doc(argv[2], pipex);
+		pipex->outfile = open(argv[pipex->cmd_nb + 2 + pipex->here_doc], \
+								O_WRONLY | O_CREAT | O_APPEND, 0000644);
+	}
+	else
+	{
+		if (!pipex->here_cmd)
 		{
 			pipex->infile = open(argv[1], O_RDONLY);
 			if (pipex->infile < 0)
@@ -56,13 +60,8 @@ void	init_file(t_pipex *pipex, char **argv)
 				ft_error(argv[1]);
 			}
 		}
-		pipex->outfile = open(argv[pipex->cmd_nb + 2 + pipex->here_doc], \
-								O_WRONLY | O_CREAT | O_APPEND, 0000644);
-	}
-	else
-	{
-		pipex->outfile = open(argv[pipex->cmd_nb + 2 + pipex->here_doc], \
-								O_TRUNC | O_CREAT | O_RDWR, 0000644);
+		pipex->outfile = open(argv[pipex->cmd_nb + 2 + pipex->here_cmd], \
+								O_CREAT | O_RDWR | O_TRUNC, 0000644);
 	}
 }
 

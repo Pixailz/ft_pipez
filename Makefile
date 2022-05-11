@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/05 02:07:07 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/11 17:40:53 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 
 CFLAGS			:= -Wall -Wextra #-Werror -g
 NAME			:= pipex
+BONUS			:= pipex_bonus
 RM				:= rm -rf
 CC				:= gcc
 PADDING			:= 27
@@ -26,10 +27,55 @@ INC_DIR			:= includes
 OBJ_DIR			:= obj
 
 # SRC
-SRC_C			:= $(wildcard $(SRC_DIR)/*.c)
+SRC_BASE		:= ft_calloc.c \
+				   ft_checkparams.c \
+				   ft_error.c \
+				   ft_get_words.c \
+				   ft_memchr.c \
+				   ft_memjoin.c \
+				   ft_memset.c \
+				   ft_parse.c \
+				   ft_printf.c \
+				   ft_put_addr.c \
+				   ft_putchar.c \
+				   ft_puthex.c \
+				   ft_putnbr.c \
+				   ft_putnbr_u.c \
+				   ft_putstr.c \
+				   ft_sel_params.c \
+				   ft_split.c \
+				   ft_strcat.c \
+				   ft_strchr.c \
+				   ft_strcpy.c \
+				   ft_strcspn.c \
+				   ft_strdup.c \
+				   ft_strjoin.c \
+				   ft_strlen.c \
+				   ft_strncmp.c \
+				   ft_strspn.c \
+				   ft_strtok.c \
+				   get_next_line.c
+
+SRC_C			:= $(SRC_BASE) \
+				   pipex.c \
+				   pipex_child.c \
+				   pipex_cmd.c \
+				   pipex_free.c \
+				   pipex_init.c
+
+SRC_BONUS		:= $(SRC_BASE) \
+				   pipex_bonus.c \
+				   pipex_child_bonus.c \
+				   pipex_cmd_bonus.c \
+				   pipex_free_bonus.c \
+				   pipex_init_bonus.c \
+
+SRC_C			:= $(addprefix $(SRC_DIR)/,$(SRC_C))
+SRC_BONUS		:= $(addprefix $(SRC_DIR)/,$(SRC_BONUS))
 
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
+OBJ_BONUS		:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_BONUS:%.c=%.o))
 
 # LIB DIR
 CFLAGS			+= -I$(INC_DIR)
@@ -82,9 +128,15 @@ $(OBJ_DIR)/%.o: 		$(SRC_DIR)/%.c
 	@printf "\n"
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
-$(NAME):				$(OBJ_C) $(BIN_DIR)
-	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(BIN_DIR)/$(NAME)$(reset)\n"
-	@$(CC) -o $(BIN_DIR)/$(NAME) $(OBJ_C)
+$(NAME):			$(OBJ_C)
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(NAME)$(reset)\n"
+	@$(CC) -o $(NAME) $(OBJ_C)
+
+$(BONUS):			$(OBJ_BONUS)
+	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(BONUS)$(reset)\n"
+	@$(CC) -o $(BONUS) $(OBJ_BONUS)
+
+bonus:				setup $(BONUS)
 
 setup:					call_logo $(OBJ_DIR)
 
@@ -115,7 +167,7 @@ $(TEST_DIR):
 	@printf "$(font_color)[$(green)+$(font_color)] Creation of $(bold)$(TEST_DIR)$(reset)\n"
 	@mkdir -p $(TEST_DIR)
 
-.PHONY:					all clean fclean re setup lib call_logo so test
+.PHONY:					all clean fclean re setup lib call_logo so
 
 # **************************************************************************** #
 #run "data.txt" "cat -e" "sed -nE 's|[0-9]*(.*)|\1|p'" "outfile.txt"

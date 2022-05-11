@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/11 17:40:53 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/11 17:56:55 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,7 +157,9 @@ clean:
 
 fclean:					clean
 	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(NAME)$(reset)\n"
-	@$(RM) $(NAME) $(LIBSHARE)
+	@$(RM) $(NAME)
+	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(BONUS)$(reset)\n"
+	@$(RM) $(BONUS)
 	@printf "$(font_color)[$(red)-$(font_color)] Deleting $(bold)$(BIN_DIR)$(reset)\n"
 	@$(RM) $(BIN_DIR)
 

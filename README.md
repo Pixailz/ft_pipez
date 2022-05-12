@@ -21,3 +21,5 @@ bash$ ./bin/pipex "here_cmd" "cmd1" "cmd2" ... "cmdN" "outfile"
 ## TODO
 
 1. pimp Makefile :)
+2. fix conditional jump whem command not found (free_pipes)
+3. fix outfile when here_cmd

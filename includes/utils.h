@@ -6,7 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:39:26 by brda-sil          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/05/11 17:35:54 by brda-sil         ###   ########.fr       */
+=======
+/*   Updated: 2022/05/05 16:23:17 by brda-sil         ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +34,23 @@
 /* ##### */
 
 char	**ft_split(char const *s, char c);
+<<<<<<< HEAD
 char	*ft_memjoin(char *s1, char *s2);
 char	*ft_memchr(char *buf, unsigned char c);
+=======
+>>>>>>> main
 char	*ft_strtok(char *str, char *token);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strcat(char *dest, const char *src);
+<<<<<<< HEAD
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memset(void *s, int c, size_t n);
+=======
+>>>>>>> main
 size_t	ft_strlen(char *s);
 size_t	ft_strcspn(char *s, const char *accepts);
 size_t	ft_strspn(char *s, const char *accepts);

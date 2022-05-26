@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:17:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/11 15:40:36 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 20:40:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	init_file(t_pipex *pipex, char **argv)
 				ft_error(argv[1]);
 			}
 		}
-		pipex->outfile = open(argv[pipex->cmd_nb + 2 + pipex->here_cmd], \
+		pipex->outfile = open(argv[pipex->cmd_nb + 2], \
 								O_CREAT | O_RDWR | O_TRUNC, 0000644);
 	}
 }
@@ -88,3 +88,4 @@ void	init_pipex(t_pipex *pipex, char **argv, char **envp)
 	}
 	init_file(pipex, argv);
 }
+// "here_cmd" "ls -la" "cat -e" "cat -e" {}

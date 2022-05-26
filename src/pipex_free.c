@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 18:19:43 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/05 01:45:38 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 23:08:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,10 @@ void	free_unfinished(t_pipex *pipex, t_cmd *cmd)
 		i++;
 	}
 	free(pipex->path);
-	free_pipes(pipex);
+	if (pipex->cmd_success == pipex->cmd_nb)
+		free_pipes(pipex);
+	else
+		free(pipex->pipe);
 	pipex->path = NULL;
 	free(pipex);
 	pipex = NULL;

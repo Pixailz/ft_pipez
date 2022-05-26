@@ -17,7 +17,3 @@ bash$ ./bin/pipex "infile" "cmd1" "cmd2" ... "cmdN" "outfile"
 bash$ ./bin/pipex "here_doc" "limiter" "cmd1" "cmd2" ... "cmdN" "outfile"
 bash$ ./bin/pipex "here_cmd" "cmd1" "cmd2" ... "cmdN" "outfile"
 ```
-
-## TODO
-
-1. pimp Makefile :)

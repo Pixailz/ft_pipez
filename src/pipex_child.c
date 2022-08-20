@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 02:31:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 02:41:52 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/08/20 22:09:29 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,8 @@ void	do_command(t_pipex *pipex, int mode)
 	if (mode == -1)
 		do_command_infile(pipex);
 	else if (mode == 1)
+	{
+		waitpid(pipex->pid1, NULL, 0);
 		do_command_outfile(pipex);
+	}
 }

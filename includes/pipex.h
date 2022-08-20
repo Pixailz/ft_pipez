@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 03:51:57 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/02 02:16:00 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/08/20 22:06:05 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
+# include <sys/wait.h>
 
 // STRUCT
 typedef struct s_cmd

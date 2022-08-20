@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 02:31:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/08/21 00:27:25 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/08/21 01:26:55 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	do_command(t_pipex *pipex, int mode)
 	}
 	else if (mode == 1)
 	{
+		waitpid(pipex->pid1, NULL, 0);
 		size_cmd = ft_get_words(pipex->cmd2->cmd_str, ' ');
 		cmd_arg = ft_split(pipex->cmd2->cmd_str, ' ');
 		do_command_outfile(pipex, cmd_arg);

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 13:14:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/04/23 21:00:38 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/05 21:25:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,15 @@ char	*ft_stash(char *s)
 
 	if (!s)
 		return (NULL);
+	if (*s)
+	{
+		free(s);
+		return (NULL);
+	}
 	start = ft_memchr(s, '\n');
 	if (!start)
 		return (NULL);
-	new = (char *)malloc((ft_strlen(s) - (start - s)));
+	new = (char *)malloc((ft_strlen(s) - (start - s) + 1));
 	if (!new)
 		return (NULL);
 	tmp = new;
@@ -73,7 +78,7 @@ char	*ft_line(char *buf)
 	end = ft_memchr(buf, '\n');
 	if (!end)
 		return (buf);
-	new = (char *)malloc(end - buf);
+	new = (char *)malloc(end - buf + 1);
 	if (!new)
 		return (NULL);
 	tmp = new;
@@ -85,25 +90,25 @@ char	*ft_line(char *buf)
 
 char	*get_next_line(int fd)
 {
-	static char	*bufs[MAX_FD];
+	static char	*buf;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > MAX_FD)
 		return (NULL);
-	if (!bufs[fd])
+	if (!buf)
 	{
-		bufs[fd] = (char *)malloc(BUFFER_SIZE + 1);
-		if (!bufs[fd])
+		buf = (char *)malloc(BUFFER_SIZE + 1);
+		if (!buf)
 			return (NULL);
-		bufs[fd][0] = 0;
+		buf[0] = 0;
 	}
-	bufs[fd] = ft_read(fd, bufs[fd]);
-	if (bufs[fd] == NULL)
+	buf = ft_read(fd, buf);
+	if (buf == NULL)
 	{
-		free(bufs[fd]);
-		bufs[fd] = NULL;
+		free(buf);
+		buf = NULL;
 	}
-	line = ft_line(bufs[fd]);
-	bufs[fd] = ft_stash(bufs[fd]);
+	line = ft_line(buf);
+	buf = ft_stash(buf);
 	return (line);
 }
